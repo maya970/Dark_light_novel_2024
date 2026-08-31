@@ -2,40 +2,16 @@
 <html lang="zh">
 
 <head>
-    <script async src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" >
-    </script>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-8550836177608334",
-        enable_page_level_ads: true
-    });
-    </script>
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?c05bb16ea908292af9f6c513087a1cc3";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#07060a">
     <meta name="author" content="viggo" />
-    <title>黑暗轻小说 - 专门推细糠</title>
+    <title>冷门历史小说 - 专门推细糠</title>
     <meta name="keywords" content="网文推书网,haqxs.com">
     <meta name="description" content="网文推书网,haqxs.com">
     <link rel="shortcut icon" href="../assets/images/favicon.png">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arimo:400,700,400italic">
-    <link rel="stylesheet" href="../assets/css/fonts/linecons/css/linecons.css">
-    <link rel="stylesheet" href="../assets/css/fonts/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/css/bootstrap.css">
-    <link rel="stylesheet" href="../assets/css/xenon-core.css">
-    <link rel="stylesheet" href="../assets/css/xenon-components.css">
-    <link rel="stylesheet" href="../assets/css/xenon-skins.css">
-    <link rel="stylesheet" href="../assets/css/nav.css">
-    <script src="../assets/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/theme.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -71,7 +47,7 @@
     </style>
 </head>
 
-<body class="page-body">
+<body class="page-body dl-site">
     <!-- skin-white -->
     <div class="page-container">
         <div class="sidebar-menu toggle-others fixed">
@@ -79,20 +55,10 @@
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="index.html" class="logo-expanded">
-                            <img src="../assets/images/logo@2x.png" width="100%" alt="" />
-                        </a>
-                        <a href="index.html" class="logo-collapsed">
-                            <img src="../assets/images/logo-collapsed@2x.png" width="40" alt="" />
-                        </a>
+                        <a href="index.html" class="logo-expanded"></a>
                     </div>
                     <div class="mobile-menu-toggle visible-xs">
-                        <a href="#" data-toggle="user-info-menu">
-                            <i class="linecons-cog"></i>
-                        </a>
-                        <a href="#" data-toggle="mobile-menu">
-                            <i class="fa-bars"></i>
-                        </a>
+                        <a href="#" data-toggle="mobile-menu" aria-label="菜单"></a>
                     </div>
                 </header>
                 <ul id="main-menu" class="main-menu">
@@ -121,38 +87,13 @@
             </div>
         </div>
         <div class="main-content">
-            <nav class="navbar user-info-navbar" role="navigation">
-                <!-- User Info, Notifications and Menu Bar -->
-                <!-- Left links for user info navbar -->
-                <ul class="user-info-menu left-links list-inline list-unstyled">
-                    <li class="hidden-sm hidden-xs">
-                        <a href="#" data-toggle="sidebar">
-                            <i class="fa-bars"></i>
-                        </a>
-                    </li>
-                    <li class="dropdown hover-line language-switcher">
-                        <a href="../cn/index.html" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../assets/images/flags/flag-cn.png" alt="flag-cn" /> Chinese
-                        </a>
-                        <ul class="dropdown-menu languages">
+            <nav class="navbar user-info-navbar" hidden></nav>
 
-                            <li class="active">
-                                <a href="../cn/index.html">
-                                    <img src="../assets/images/flags/flag-cn.png" alt="flag-cn" /> Chinese
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <!-- <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
-
-            </nav>
 
 
           
     <h1>书籍列表</h1>
-            <h2>需要选择评分或者分类才能看见对应的书籍</h1>
+    <p class="dl-sub">按评分或分类筛选。点表头可按评分排序。</p>
 
     <div>
         <input type="text" id="nameFilter" onkeyup="filterTable()" placeholder="搜索书名..">
@@ -199,134 +140,12 @@
         </tbody>
     </table>
 
-    <div>
+    <div class="dl-pager">
         <button id="prevPage" onclick="changePage(-1)">上一页</button>
+        <span id="pageInfo" class="dl-page-info"></span>
         <button id="nextPage" onclick="changePage(1)">下一页</button>
     </div>
 
-    <script>
-        let currentPage = 1;
-        const rowsPerPage = 10;
-        let filteredBooks = [];
-        let allBooks = [];
-
-        const fileNames = [
-            'hbookpart1.txt',
-            'hbookpart2.txt',
-            'hbookpart3.txt',
-            'hbookpart4.txt',
-            'hbookpart5.txt',
-            'hbookpart6.txt'
-        ];
-
-        // 加载所有书籍文件
-        async function loadBooks() {
-            try {
-                const promises = fileNames.map(file => fetch(file).then(res => res.text()));
-                const texts = await Promise.all(promises); // 加载所有文件
-
-                texts.forEach(text => parseBooks(text)); // 解析每个文件内容
-                filteredBooks = allBooks; // 初始化过滤后的书籍为所有书籍
-                sortBooks('rating'); // 默认按评分排序
-                populateTable(filteredBooks); // 显示数据
-            } catch (error) {
-                console.error('加载书籍时出错:', error);
-            }
-        }
-
-        // 解析书籍数据
-        function parseBooks(text) {
-            const lines = text.trim().split('\n'); // 按行分割
-            const books = lines.map(line => {
-                const parts = line.split(',').map(part => part.trim().replace(/^'(.*)'$/, '$1')); // 去掉多余空格和引号
-
-                return {
-                    
-                    rating: parseFloat(parts[3]) || 'N/A',       // 评分
-                    category: parts[2].replace(/'/g, ""),        // 类别
-                    ratingCount: parseInt(parts[4]) || 'N/A',    // 评分人数
-                    title: parts[5].replace(/'/g, ""),           // 书名
-                    wordCount: parseInt(parts[6]) || 'N/A',      // 字数
-                    author: parts[7].replace(/'/g, ""),          // 作者
-                    link: parts[8].replace(/'/g, ""),            // 链接
-                };
-            });
-            allBooks = allBooks.concat(books); // 合并所有书籍
-        }
-
-        // 填充表格
-        function populateTable(books) {
-            const tbody = document.getElementById('bookTable').getElementsByTagName('tbody')[0];
-            tbody.innerHTML = ''; // 清空表格内容
-
-            const start = (currentPage - 1) * rowsPerPage;
-            const end = start + rowsPerPage;
-            const paginatedBooks = books.slice(start, end); // 分页
-
-            paginatedBooks.forEach(book => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-               
-                    <td>${book.rating}</td>
-                    <td>${book.category}</td>
-                    <td>${book.ratingCount}</td>
-                    <td>${book.title}</td>
-                    <td>${book.wordCount}</td>
-                    <td>${book.author}</td>
-                    <td><a href="${book.link}" target="_blank">链接</a></td>
-                `;
-                tbody.appendChild(tr);
-            });
-
-            document.getElementById('prevPage').disabled = currentPage === 1;
-            document.getElementById('nextPage').disabled = end >= books.length;
-        }
-
-        // 过滤表格
-        function filterTable() {
-            const nameInput = document.getElementById("nameFilter").value.toUpperCase();
-            const categoryFilter = document.getElementById("categoryFilter").value;
-            const ratingFilter = document.getElementById("ratingFilter").value;
-
-            filteredBooks = allBooks.filter(book => {
-                const matchesName = book.title.toUpperCase().includes(nameInput);
-                const matchesCategory = !categoryFilter || book.category.includes(categoryFilter);
-                const matchesRating = filterByRating(book.rating, ratingFilter);
-
-                return matchesName && matchesCategory && matchesRating;
-            });
-
-            currentPage = 1;
-            populateTable(filteredBooks);
-        }
-
-        // 按评分区间过滤
-        function filterByRating(rating, filter) {
-            if (filter === "") return true; // 不过滤
-            const [min, max] = filter.split('-').map(Number);
-            return rating >= min && rating < max;
-        }
-
-        // 改变页面
-        function changePage(direction) {
-            currentPage += direction;
-            populateTable(filteredBooks);
-        }
-
-        // 按评分从高到低排序
-        function sortBooks(field) {
-            filteredBooks.sort((a, b) => (b[field] || 0) - (a[field] || 0));
-        }
-
-        // 点击表头进行排序
-        function sortTable(field) {
-            sortBooks(field);
-            currentPage = 1;
-            populateTable(filteredBooks);
-        }
-
-        loadBooks();
-    </script>
 
             
            
@@ -341,7 +160,7 @@
                     <!-- Add your copyright text here -->
                     <div class="footer-text">
                         &copy; 2017-2022
-                        <a href="https://haqxs.com/"><strong>黑暗轻小说</strong></a> by <a href="../cn/about.html" target="_blank"><strong>黑轻工作室</strong></a>
+                        <a href="https://haqxs.com/"><strong>冷门历史小说</strong></a> by <a href="../cn/about.html" target="_blank"><strong>黑轻工作室</strong></a>
                         <!--  - Purchase for only <strong>23$</strong> -->
                     </div>
                     <!-- Go to Top Link, just add rel="go-top" to any link to add this functionality -->
@@ -354,82 +173,21 @@
             </footer>
         </div>
     </div>
-    <!-- 锚点平滑移动 -->
-    <script type="text/javascript">
-
-
-      
-    $(document).ready(function() {
-         //img lazy loaded
-         const observer = lozad();
-         observer.observe();
-
-        $(document).on('click', '.has-sub', function(){
-            var _this = $(this)
-            if(!$(this).hasClass('expanded')) {
-               setTimeout(function(){
-                    _this.find('ul').attr("style","")
-               }, 300);
-              
-            } else {
-                $('.has-sub ul').each(function(id,ele){
-                    var _that = $(this)
-                    if(_this.find('ul')[0] != ele) {
-                        setTimeout(function(){
-                            _that.attr("style","")
-                        }, 300);
-                    }
-                })
-            }
-        })
-        $('.user-info-menu .hidden-sm').click(function(){
-            if($('.sidebar-menu').hasClass('collapsed')) {
-                $('.has-sub.expanded > ul').attr("style","")
-            } else {
-                $('.has-sub.expanded > ul').show()
-            }
-        })
-        $("#main-menu li ul li").click(function() {
-            $(this).siblings('li').removeClass('active'); // 删除其他兄弟元素的样式
-            $(this).addClass('active'); // 添加当前元素的样式
-        });
-        $("a.smooth").click(function(ev) {
-            ev.preventDefault();
-
-            public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
-            ps_destroy();
-            $("html, body").animate({
-                scrollTop: $($(this).attr("href")).offset().top - 30
-            }, {
-                duration: 500,
-                easing: "swing"
-            });
-        });
-        return false;
-    });
-
-    var href = "";
-    var pos = 0;
-    $("a.smooth").click(function(e) {
-        $("#main-menu li").each(function() {
-            $(this).removeClass("active");
-        });
-        $(this).parent("li").addClass("active");
-        e.preventDefault();
-        href = $(this).attr("href");
-        pos = $(href).position().top - 30;
-    });
+    <script src="../assets/js/books.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script>
+      BookList.start({
+        perPage: 100,
+        files: [
+          "hbookpart1.txt",
+          "hbookpart2.txt",
+          "hbookpart3.txt",
+          "hbookpart4.txt",
+          "hbookpart5.txt",
+          "hbookpart6.txt"
+        ]
+      });
     </script>
-    <!-- Bottom Scripts -->
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script src="../assets/js/TweenMax.min.js"></script>
-    <script src="../assets/js/resizeable.js"></script>
-    <script src="../assets/js/joinable.js"></script>
-    <script src="../assets/js/xenon-api.js"></script>
-    <script src="../assets/js/xenon-toggles.js"></script>
-    <!-- JavaScripts initializations and stuff -->
-    <script src="../assets/js/xenon-custom.js"></script>
-    <script src="../assets/js/lozad.js"></script>
 </body>
 
 </html>
